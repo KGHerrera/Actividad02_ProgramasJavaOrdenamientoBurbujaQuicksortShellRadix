@@ -33,6 +33,27 @@ class AlgoritmosOrdenamiento{
 		
 	}
 	
+	public static void burbuja2(int []numeros) {
+    	int i = 1;
+    	long tInicio = System.currentTimeMillis();
+    	while(i<numeros.length) {
+    		for(int j = 0; j < numeros.length-i; j++) {
+    			comparaciones++;
+    			if(numeros[j] > numeros[j+1]) {
+    				int aux = numeros[j];
+					numeros[j] = numeros[j+1];
+					numeros[j+1] = aux;
+					intercambios++;
+    			}
+    			recorrido++;
+    		}
+    		i = i + 1;
+    		
+    	}
+    	long tFin = System.currentTimeMillis();
+        mostrarDatos(tFin, tInicio, recorrido, comparaciones, intercambios);
+	}
+	
 	
 	
 	
