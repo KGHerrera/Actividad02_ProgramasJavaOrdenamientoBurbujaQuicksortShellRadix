@@ -4,6 +4,7 @@ Created on 25/11/2021
 @author: Herrera
 '''
 import time
+import math
 
 class AlgoritmosOrdenamiento:
     
@@ -133,3 +134,43 @@ class AlgoritmosOrdenamiento:
             
         fin = time.time()
         self.mostrarDatos(inicio, fin, self.recorridos, self.intercambios, self.comparaciones)
+        
+    def counting_sort(self, A, digit, radix):
+        
+        B = [0]* len(A)
+        C = [0]* int(radix)
+        
+        for i in range(0, len(A)):
+            self.intercambios+=1
+            self.comparaciones+=1
+            digit_of_Ai = (A[i]/radix ** digit)% radix
+            C[int(digit_of_Ai)] = C[int(digit_of_Ai)] +1 
+            self.recorridos+=1
+            
+        for j in range(1, radix):
+            self.intercambios+=1
+            C[j]= C[j]+ C[j-1]
+            self.recorridos+=1
+            
+        for m in range(len(A)-1, -1, -1):
+            self.intercambios+=1
+            self.comparaciones+=1
+            digit_of_Ai = (A[m]/radix ** digit)% radix
+            C[int(digit_of_Ai)]= C[int(digit_of_Ai)]-1
+            B[C[int(digit_of_Ai)]] = A[m]
+            self.recorridos+=1
+        return B 
+    
+    def radix_sort(self, A, radix):
+        inicio = time.time()
+        k = max(A)
+        
+        output = A 
+        
+        digits = int(math.floor(math.log(k, radix)+1))
+        for i in range(digits):
+            output= self.counting_sort(output, i, radix)
+        
+        fin = time.time()
+        self.mostrarDatos(inicio, fin, self.recorridos, self.intercambios, self.comparaciones)
+        return output
