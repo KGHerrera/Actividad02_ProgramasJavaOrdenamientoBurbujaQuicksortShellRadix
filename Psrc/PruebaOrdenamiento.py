@@ -27,10 +27,13 @@ class AlgoritmosOrdenamiento:
         self.comparaciones = self.intercambios = self.recorridos = 0
         for i in range(1, len(arreglo)):
             for j in range(0, len(arreglo)-i):
+                self.comparaciones+=1
                 if arreglo[j]>arreglo[j+1]:
+                    self.intercambios +=1
                     aux = arreglo[j]
                     arreglo[j] = arreglo[j+1]
                     arreglo[j+1] = aux
+                self.recorridos+=1
         fin = time.time()
         
         self.mostrarDatos(inicio, fin, self.recorridos, self.intercambios, self.comparaciones)
@@ -47,7 +50,7 @@ class AlgoritmosOrdenamiento:
                    
                     arreglo[i] = arreglo[j]
                     arreglo[j] = aux
-                    self.comparaciones+=1
+                    self.intercambios+=1
                 self.recorridos+=1
                 j+=1
             i+=1
