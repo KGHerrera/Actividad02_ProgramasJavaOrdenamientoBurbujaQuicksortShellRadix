@@ -18,8 +18,9 @@ class AlgoritmosOrdenamiento:
     def mostrarDatos(self, inicio, fin, recorridos, intercambios, comparaciones):
         print(f"Tiempo: {fin-inicio}")
         print(f"Recorridos: {self.recorridos}")
-        print(f"Intercambios: {self.intercambios}")
         print(f"Comparaciones: {self.comparaciones}")
+        print(f"Intercambios: {self.intercambios}")
+        
         self.comparaciones = self.intercambios = self.recorridos = 0
     
     def burbuja1(self, arreglo):
@@ -252,3 +253,78 @@ while(opcion != 20):
     
     elif (opcion == 8):
         print("\nSaliendo . . .")
+    
+    '''
+        Crear vectores con números aleatorios con los siguientes tamaños:
+        - 1000
+        - 10000
+        - 100000
+        - 1000000
+
+        Mostrar los tiempos de ejecución.
+        Mostrar cantidad de recorridos, comparaciones e intercambios
+        Crear una TABLA comparativa con los resultados.
+        
+        
+        prueba vector con 1000 elementos
+        
+        metodo                tiempo            recorridos            comparaciones            intercambios
+        
+        burbuja 1            0.513988733291    499500                499500                    232362
+        
+        burbuja 2            0.313989400863    5000500               5000500                   6937
+        
+        burbuja 3            0.296975851058    499500                499500                    232362
+        
+        quicksort            0.010014772415    3701                  11103                     3676
+        
+        shellsort            2.409994125366    3937042               3937042                   3431
+        
+        radixsort            0.008032321929    4018                  4000                      4018
+        
+        
+        prueba vector con 10000 elementos
+        
+        metodo                tiempo            recorridos            comparaciones           intercambios
+        
+        burbuja 1            30.06298732757     49995000            49995000                23439016
+        
+        burbuja 2            23.4179892539      50005000            50005000                68981
+        
+        burbuja 3            29.434995651       49995000            49995000                23439016
+        
+        quicksort            0.106981277        53389               160167                  53343
+        
+        shellsort            322.3981614        592668512           592668512               43895
+        
+        radixsort            0.06198191642      40018               40000                   40018
+        
+        
+        prueba vector con 100000 elementos
+        
+        metodo                tiempo            recorridos            comparaciones           intercambios
+        
+        burbuja 1            321.8274017        499950000            499950000                2334201632
+        
+        burbuja 2            243.412426239      500050000            500050000                65286481
+        
+        burbuja 3            295.5289351        499950000            499950000                2123589016
+        
+        quicksort            0.957989454        696600               2089800                  696545
+        
+        shellsort            892.153284         59266812312          59416563512              56584691 
+        
+        radixsort            0.475990772       400018                400000                   400018
+        
+        
+        prueba vector con 1000000 elementos
+        
+        metodo                tiempo            recorridos            comparaciones           intercambios
+        
+        quicksort            11.46198987        8624685              25874055                 8624618
+        
+        radixsort            4.721994638442     4000018              4000000                  4000018
+        
+        
+    
+    '''
