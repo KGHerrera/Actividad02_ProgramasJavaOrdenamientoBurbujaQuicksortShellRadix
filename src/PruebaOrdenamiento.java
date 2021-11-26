@@ -153,6 +153,46 @@ class AlgoritmosOrdenamiento{
 		 a[j]= aux ;
 	}
 	
+	public static void radix(int []nums) {
+		int[][] bucket = new int[10][nums.length];
+		int[] bucketOfElement = new int[10];
+		int max=0;
+		
+		 long tFin, tInicio = System.currentTimeMillis();
+	
+		for(int i = 0 ; i < nums.length;i++) {
+			comparaciones++;
+			if(nums[i]>max){
+				intercambios++;
+				max = nums[i];
+			}
+			recorrido++;
+		}
+		
+		int maxLength = (max+"").length();
+		for(int m = 0,n=1;m<maxLength;m++,n*=10) {
+			recorrido++;
+			for(int i = 0 ; i < nums.length;i++) {
+				int digit = nums[i]/n%10;
+				intercambios++;
+				bucket[digit][bucketOfElement[digit]] = nums[i];
+				bucketOfElement[digit]++;
+			}
+			int index = 0;
+			
+			for(int j = 0;j<10;j++) {
+				for(int k = 0 ; k<bucketOfElement[j];k++) {
+					intercambios++;
+					nums[index] = bucket[j][k];
+					index++;
+				}
+				bucketOfElement[j]=0;
+				recorrido++;
+			}
+		}
+		tFin = System.currentTimeMillis();
+		mostrarDatos(tFin, tInicio, recorrido, comparaciones, intercambios);
+	}
 	
 }
 
