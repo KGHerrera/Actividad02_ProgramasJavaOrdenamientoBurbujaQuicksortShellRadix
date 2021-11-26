@@ -1,3 +1,6 @@
+import java.util.Arrays;
+import java.util.Random;
+import java.util.Scanner;
 
 class AlgoritmosOrdenamiento{
 	
@@ -199,5 +202,100 @@ class AlgoritmosOrdenamiento{
 public class PruebaOrdenamiento {
 	public static void main(String[] args) {
 		
+		Random random = new Random();
+		int [] vect = new int[1000];
+		for (int i = 0; i < vect.length; i++) {
+			vect[i] = random.nextInt(100) + 1;
+		}
+		
+		
+		int opcion = 0;
+		Scanner entrada = new Scanner(System.in);
+		
+		do {
+			System.out.println("\nIntroduce metodo de ordenamiento: ");
+			System.out.println("1) burbuja 1");
+			System.out.println("2) burbuja 2");
+			System.out.println("3) burbuja 3");
+			System.out.println("4) Quicksort");
+			System.out.println("5) Shellsort");
+			System.out.println("6) Radix");
+			System.out.println("7) cambiar longitud de vector");
+			System.out.println("8) Salir");
+			System.out.println("Introduce opcion: ");
+			opcion = entrada.nextInt();
+			
+			int vector[] = vect.clone(); 
+			
+			
+			switch (opcion) {
+				
+			case 1:
+				
+				AlgoritmosOrdenamiento.burbuja1(vector);
+				System.out.println("\nEl vector a sido ordenado");
+				System.out.println(Arrays.toString(vector));
+				
+				break;
+				
+			case 2:
+				
+				AlgoritmosOrdenamiento.burbuja2(vector);
+				System.out.println("\nEl vector a sido ordenado");
+				System.out.println(Arrays.toString(vector));
+				
+				break;
+				
+			case 3:
+				
+				AlgoritmosOrdenamiento.burbuja3(vector);
+				System.out.println("\nEl vector a sido ordenado");
+				System.out.println(Arrays.toString(vector));
+				
+				break;
+				
+			case 4:
+				
+				AlgoritmosOrdenamiento.quicksort(vector);
+				System.out.println("\nEl vector a sido ordenado");
+				System.out.println(Arrays.toString(vector));
+				
+				break;
+				
+			case 5:
+		
+				AlgoritmosOrdenamiento.ordenacionShell(vector);
+				System.out.println("\nEl vector a sido ordenado");
+				System.out.println(Arrays.toString(vector));
+				
+				break;
+			case 6:
+				
+				
+				AlgoritmosOrdenamiento.radix(vector);
+				System.out.println("\nEl vector a sido ordenado");
+				System.out.println(Arrays.toString(vector));
+				
+				break;
+			
+			case 7:
+				System.out.println("\nIntroduce nueva longitud: ");
+				int longitud = entrada.nextInt();
+				int nuevoVector[] = new int[longitud];
+				for (int i = 0; i < nuevoVector.length; i++) {
+					nuevoVector[i] = random.nextInt(100)+1;
+				}
+				
+				vect = nuevoVector;
+				break;
+			case 8:
+				System.out.println("\nSaliendo . . .");
+				break;
+			default:
+				System.out.println("\nOpcion incorrecta");
+				break;
+			}
+			
+		} while(opcion != 8);
 	}
 }
