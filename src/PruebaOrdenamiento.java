@@ -13,6 +13,28 @@ class AlgoritmosOrdenamiento{
 		comparaciones = recorrido = intercambios = 0;
 	}
 	
+	public static void burbuja1(int []numeros) {
+		 long tInicio = System.currentTimeMillis();
+		 
+		 for(int i=1; i<=numeros.length-1; i++) {
+			for(int j=0; j<=numeros.length-i-1; j++) {
+				comparaciones++;
+				if(numeros[j]>numeros[j+1]) {
+					int aux = numeros[j];
+					numeros[j] = numeros[j+1];
+					numeros[j+1] = aux;
+					intercambios++;
+				}
+				recorrido++;
+			}
+		}
+		long tFin = System.currentTimeMillis();
+		mostrarDatos(tFin, tInicio, recorrido, comparaciones, intercambios);
+		
+	}
+	
+	
+	
 	
 	
 }
