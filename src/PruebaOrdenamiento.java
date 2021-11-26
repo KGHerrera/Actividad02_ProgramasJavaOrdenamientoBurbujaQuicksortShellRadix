@@ -106,6 +106,52 @@ class AlgoritmosOrdenamiento{
 		 	 quicksort(a, i, ultimo); // mismo proceso con sublista drcha
 	}
 	
+	public static void quicksort(int a[]) {
+		long tFin, tInicio = System.currentTimeMillis();
+		quicksort(a, 0, a.length-1);
+		tFin = System.currentTimeMillis();
+		mostrarDatos(tFin, tInicio, recorrido, comparaciones, intercambios);
+	}
+	
+	public static void ordenacionShell(int a[]) {
+		 int intervalo, i, j, k;
+		 int n= a.length;
+		 intervalo = n / 2;
+		 
+		 long tFin, tInicio = System.currentTimeMillis();
+		 while (intervalo > 0)
+		 {
+			 
+		 	 for (i = intervalo; i < n; i++)
+		 	 {
+		 	 	 j = i - intervalo;
+		 	 	 while (j >= 0)
+		 	 	 {
+		 	 	 	 k = j + intervalo;
+		 	 	 	 comparaciones++;
+		 	 	 	 if (a[j] <= a[k])
+		 	 	 	 	 j = -1; 
+		 	 	 	 else
+		 	 	 	 {
+		 	 	 		 intercambios++;
+		 	 	 	 	 intercambiar(a, j, j+1);
+		 	 	 	 	 j -= intervalo;
+		 	 	 	 }
+		 	 	 	 recorrido++;
+		 	 	 }
+		 	 }
+		 	 intervalo = intervalo / 2;
+		 }
+		 tFin = System.currentTimeMillis();
+		 System.out.println("\nTiempo de ordenamiento: " + (tFin -tInicio));
+		 mostrarDatos(tFin, tInicio, recorrido, comparaciones, intercambios);
+	}
+	
+	public static void intercambiar(int []a, int i, int j) {
+		 int aux = a[i];
+		 a[i] = a[j];
+		 a[j]= aux ;
+	}
 	
 	
 }
