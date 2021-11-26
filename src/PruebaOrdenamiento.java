@@ -76,6 +76,35 @@ class AlgoritmosOrdenamiento{
 	 	    mostrarDatos(tFin, tInicio, recorrido, comparaciones, intercambios);
 	    }
 	
+	private static void quicksort(int a[], int primero, int ultimo) {
+		 int i, j, central;
+		 int pivote; 
+		 central = (primero + ultimo)/2;
+		 pivote = a[central];
+		 i = primero;
+		 j = ultimo;
+		 do {
+			 comparaciones++;
+		 	 while (a[i] < pivote) i++;
+		 	comparaciones++;
+		 	 while (a[j] > pivote) j--;
+		 	 if (i <= j) {
+		 		 // Se intercambian
+		 		 intercambios++;
+		 		 int aux = a[i];
+				 a[i] = a[j];
+				 a[j] = aux;
+		 	 	 i++;
+		 	 	 j--;
+		 	 }
+		 	 recorrido++;
+		 } while (i <= j);
+		 
+		 if (primero < j)
+		 	 quicksort(a, primero, j); // mismo proceso con sublista izqda
+		 if (i < ultimo)
+		 	 quicksort(a, i, ultimo); // mismo proceso con sublista drcha
+	}
 	
 	
 	
