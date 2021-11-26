@@ -5,6 +5,7 @@ Created on 25/11/2021
 '''
 import time
 import math
+import random
 
 class AlgoritmosOrdenamiento:
     
@@ -174,3 +175,68 @@ class AlgoritmosOrdenamiento:
         fin = time.time()
         self.mostrarDatos(inicio, fin, self.recorridos, self.intercambios, self.comparaciones)
         return output
+    
+vect = []
+opcion = 0
+a1 = AlgoritmosOrdenamiento()
+for i in range(10):
+    vect.append(random.randrange(70, 99, 2))
+
+while(opcion != 20):
+    print("\nIntroduce metodo de ordenamiento: ");
+    print("1) burbuja 1");
+    print("2) burbuja 2");
+    print("3) burbuja 3");
+    print("4) Quicksort");
+    print("5) Shellsort");
+    print("6) Radix")
+    print("7) Salir");
+    opcion = int(input("Introduce opcion: "))
+    
+    vector = vect.copy()
+    
+    
+    if (opcion == 1):
+        print("\nVector sin ordenar: ")
+        print(vector)
+        AlgoritmosOrdenamiento.burbuja1(vector)
+        print("\nVector ordenado: ")
+        print(vector)
+        
+    if (opcion == 2):
+        print("\nVector sin ordenar: ")
+        print(vector)
+        AlgoritmosOrdenamiento.burbuja2(vector)
+        print("\nVector ordenado: ")
+        print(vector)
+        
+    if (opcion == 3):
+        print("\nVector sin ordenar: ")
+        print(vector)
+        AlgoritmosOrdenamiento.burbuja3(vector)
+        print("\nVector ordenado: ")
+        print(vector)
+    
+    if (opcion == 4):
+        print("\nVector sin ordenar: ")
+        print(vector)
+        AlgoritmosOrdenamiento.quicksortLlamada(vector)
+        print("\nVector ordenado: ")
+        print(vector)
+        
+    if (opcion == 5):
+        print("\nVector sin ordenar: ")
+        print(vector)
+        AlgoritmosOrdenamiento.shellSort(vector)
+        print("\nVector ordenado: ")
+        print(vector)
+        
+    if (opcion == 6):
+        print("\nVector sin ordenar: ")
+        print(vector)
+        
+        print("\nVector ordenado: ")
+        print(a1.radix_sort(vector, 10))
+        
+    if (opcion == 7):
+        print("\nSaliendo . . .")
