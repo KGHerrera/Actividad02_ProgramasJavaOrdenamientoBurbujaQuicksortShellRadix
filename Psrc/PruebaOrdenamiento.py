@@ -111,4 +111,25 @@ class AlgoritmosOrdenamiento:
         fin = time.time()
         self.mostrarDatos(inicio, fin, self.recorridos, self.intercambios, self.comparaciones)
         
-    
+    def shellSort(self, numeros):
+        inicio = time.time()
+        intervalo = int(len(numeros)/2)
+        while(intervalo>0):
+            for i in range(int(intervalo), len(numeros)):
+                j=i-int(intervalo)
+                while(j>=0):
+                    k=j+int(intervalo)
+                    self.comparaciones+=1
+                    if numeros[j]<=numeros[k]:
+                        j-=1
+                    else:
+                        self.intercambios+=1
+                        aux=numeros[j]
+                        numeros[j]=numeros[k]
+                        numeros[k]=aux
+                        j-=int(intervalo)
+                    self.recorridos+=1
+            intervalo=int(intervalo)/2
+            
+        fin = time.time()
+        self.mostrarDatos(inicio, fin, self.recorridos, self.intercambios, self.comparaciones)
