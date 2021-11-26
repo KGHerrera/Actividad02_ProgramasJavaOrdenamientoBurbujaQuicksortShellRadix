@@ -101,13 +101,13 @@ class AlgoritmosOrdenamiento:
                 j-=1
             self.recorridos+=1
         if(primero < j):
-            AlgoritmosOrdenamiento.quicksort(a, primero, j)
+            self.quicksort(a, primero, j)
         if(i < ultimo):
-            AlgoritmosOrdenamiento.quicksort(a, i, ultimo)
+            self.quicksort(a, i, ultimo)
             
     def quicksortLlamada(self, a):
         inicio = time.time()
-        AlgoritmosOrdenamiento.quicksort(a, 0, len(a)-1)
+        self.quicksort(a, 0, len(a)-1)
         fin = time.time()
         self.mostrarDatos(inicio, fin, self.recorridos, self.intercambios, self.comparaciones)
         
@@ -198,35 +198,35 @@ while(opcion != 20):
     if (opcion == 1):
         print("\nVector sin ordenar: ")
         print(vector)
-        AlgoritmosOrdenamiento.burbuja1(vector)
+        a1.burbuja1(vector)
         print("\nVector ordenado: ")
         print(vector)
         
     elif (opcion == 2):
         print("\nVector sin ordenar: ")
         print(vector)
-        AlgoritmosOrdenamiento.burbuja2(vector)
+        a1.burbuja2(vector)
         print("\nVector ordenado: ")
         print(vector)
         
     elif (opcion == 3):
         print("\nVector sin ordenar: ")
         print(vector)
-        AlgoritmosOrdenamiento.burbuja3(vector)
+        a1.burbuja3(vector)
         print("\nVector ordenado: ")
         print(vector)
     
     elif (opcion == 4):
         print("\nVector sin ordenar: ")
         print(vector)
-        AlgoritmosOrdenamiento.quicksortLlamada(vector)
+        a1.quicksortLlamada(vector)
         print("\nVector ordenado: ")
         print(vector)
         
     elif (opcion == 5):
         print("\nVector sin ordenar: ")
         print(vector)
-        AlgoritmosOrdenamiento.shellSort(vector)
+        a1.shellSort(vector)
         print("\nVector ordenado: ")
         print(vector)
         
@@ -238,7 +238,7 @@ while(opcion != 20):
         print(a1.radix_sort(vector, 10))
     
     elif (opcion == 7): 
-        longitud = int(input("\nIntroduce nueva longitud"))   
+        longitud = int(input("\nIntroduce nueva longitud: "))   
         nuevoVector = [0]*longitud
         
         for i in range(len(nuevoVector)):
