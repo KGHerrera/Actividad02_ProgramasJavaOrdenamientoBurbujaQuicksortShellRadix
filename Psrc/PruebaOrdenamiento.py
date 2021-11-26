@@ -35,8 +35,6 @@ class AlgoritmosOrdenamiento:
         
         self.mostrarDatos(inicio, fin, self.recorridos, self.intercambios, self.comparaciones)
         
-    
-    
     def burbuja2(self, arreglo):
         i = 0
         inicio = time.time()
@@ -190,7 +188,8 @@ while(opcion != 20):
     print("4) Quicksort");
     print("5) Shellsort");
     print("6) Radix")
-    print("7) Salir");
+    print("7) cambiar longitud del vector")
+    print("8) Salir")
     opcion = int(input("Introduce opcion: "))
     
     vector = vect.copy()
@@ -203,40 +202,50 @@ while(opcion != 20):
         print("\nVector ordenado: ")
         print(vector)
         
-    if (opcion == 2):
+    elif (opcion == 2):
         print("\nVector sin ordenar: ")
         print(vector)
         AlgoritmosOrdenamiento.burbuja2(vector)
         print("\nVector ordenado: ")
         print(vector)
         
-    if (opcion == 3):
+    elif (opcion == 3):
         print("\nVector sin ordenar: ")
         print(vector)
         AlgoritmosOrdenamiento.burbuja3(vector)
         print("\nVector ordenado: ")
         print(vector)
     
-    if (opcion == 4):
+    elif (opcion == 4):
         print("\nVector sin ordenar: ")
         print(vector)
         AlgoritmosOrdenamiento.quicksortLlamada(vector)
         print("\nVector ordenado: ")
         print(vector)
         
-    if (opcion == 5):
+    elif (opcion == 5):
         print("\nVector sin ordenar: ")
         print(vector)
         AlgoritmosOrdenamiento.shellSort(vector)
         print("\nVector ordenado: ")
         print(vector)
         
-    if (opcion == 6):
+    elif (opcion == 6):
         print("\nVector sin ordenar: ")
         print(vector)
         
         print("\nVector ordenado: ")
         print(a1.radix_sort(vector, 10))
+    
+    elif (opcion == 7): 
+        longitud = int(input("\nIntroduce nueva longitud"))   
+        nuevoVector = [0]*longitud
         
-    if (opcion == 7):
+        for i in range(len(nuevoVector)):
+            nuevoVector[i] = (random.randrange(70, 99, 2))
+            
+        vect = nuevoVector
+        
+    
+    elif (opcion == 8):
         print("\nSaliendo . . .")

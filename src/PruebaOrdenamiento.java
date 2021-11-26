@@ -9,7 +9,7 @@ class AlgoritmosOrdenamiento{
 	static long recorrido = 0;
 	
 	public static void mostrarDatos(long tFin1, long tInicio1, long recorrido1, long comparaciones1, long intercambios1) {
-		System.out.println("\nTiempo de ejecucion en ordenamiento por burbuja: " + (tFin1-tInicio1));
+		System.out.println("\nTiempo de ejecucion: " + (tFin1-tInicio1));
 		System.out.println("Recorridos: " + recorrido1);
 		System.out.println("Comparaciones: " + comparaciones1);
 		System.out.println("Intercambios: " + intercambios1);
@@ -225,6 +225,7 @@ public class PruebaOrdenamiento {
 			System.out.println("Introduce opcion: ");
 			opcion = entrada.nextInt();
 			
+			
 			int vector[] = vect.clone(); 
 			
 			
@@ -298,4 +299,88 @@ public class PruebaOrdenamiento {
 			
 		} while(opcion != 8);
 	}
+	
+	/*
+		Crear vectores con números aleatorios con los siguientes tamaños:
+        - 1000
+        - 10000
+        - 100000
+        - 1000000
+
+		Mostrar los tiempos de ejecución.
+		Mostrar cantidad de recorridos, comparaciones e intercambios
+		Crear una TABLA comparativa con los resultados.
+		
+		
+		prueba vector con 1000 elementos
+		
+		metodo				tiempo			recorridos			comparaciones			intercambios
+		
+		burbuja 1			20				499500				499500					241532
+		
+		burbuja 2			18				499500				499500					241532
+		
+		burbuja 3			17				499500				499500					241532
+		
+		quicksort			1				3141				6282					3061
+		
+		shellsort			17				252673				252673					246008
+		
+		radixsort			1				1033				1000					6004
+		
+		
+		prueba vector con 10000 elementos
+		
+		metodo				tiempo			recorridos			comparaciones			intercambios
+		
+		burbuja 1			299				49995000			49995000				24801380
+		
+		burbuja 2			241				49995000			49995000				24801380
+		
+		burbuja 3			239				49995000			49995000				24801380
+		
+		quicksort			25				46532				93064					46326
+		
+		shellsort			161				24982519			24982519				24877598
+		
+		radixsort			23				10033				10000					60009
+		
+		
+		prueba vector con 100000 elementos
+		
+		metodo				tiempo			recorridos			comparaciones			intercambios
+		
+		burbuja 1			29019			4999950000			4999950000				2485512471
+		
+		burbuja 2			24438			4999950000			4999950000				2485512471
+		
+		burbuja 3			23660			4999950000			4999950000				2485512471
+		
+		quicksort			61				626573				1253146					626264
+		
+		shellsort			10822			2487892699			2487892699				2486543695
+		
+		radixsort			32				10033				10000					60009
+		
+		
+		prueba vector con 1000000 elementos
+		
+		metodo				tiempo			recorridos			comparaciones		intercambios
+		
+		burbuja 1			2890129			49999500000			49999500000			2485512471
+		
+		burbuja 2			2434384 		49999500000			49999500000			2485512471
+		
+		burbuja 3			2338609			49999500000			49999500000			2485512471
+		
+		quicksort			137				7884527				15769054			7884074
+		
+		shellsort			128282			248738913699		25417892639			24187543595
+		
+		radixsort			104				1000033				1000000				6000005
+	
+	 */
+	
+	
+	
 }
