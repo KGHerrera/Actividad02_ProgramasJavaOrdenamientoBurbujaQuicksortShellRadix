@@ -72,3 +72,43 @@ class AlgoritmosOrdenamiento:
              
         fin = time.time()
         self.mostrarDatos(inicio, fin, self.recorridos, self.intercambios, self.comparaciones)
+    
+    @staticmethod
+    def intercambiar(a, i, j):
+        aux = a[i]
+        a[i] = a[j]
+        a[j] = aux
+        
+    
+    def quicksort(self, a, primero, ultimo):
+        central = int((primero + ultimo)/2)
+        pivote = a[central]
+        i = primero
+        j = ultimo
+        
+        while(i <= j):
+            self.comparaciones+=1
+            while(a[i] < pivote):
+                i+=1
+            self.comparaciones+=1
+            while(a[j] > pivote):
+                j-=1
+            self.comparaciones+=1
+            if(i <= j):
+                self.intercambios+=1
+                AlgoritmosOrdenamiento.intercambiar(a, i, j)
+                i+=1
+                j-=1
+            self.recorridos+=1
+        if(primero < j):
+            AlgoritmosOrdenamiento.quicksort(a, primero, j)
+        if(i < ultimo):
+            AlgoritmosOrdenamiento.quicksort(a, i, ultimo)
+            
+    def quicksortLlamada(self, a):
+        inicio = time.time()
+        AlgoritmosOrdenamiento.quicksort(a, 0, len(a)-1)
+        fin = time.time()
+        self.mostrarDatos(inicio, fin, self.recorridos, self.intercambios, self.comparaciones)
+        
+    
